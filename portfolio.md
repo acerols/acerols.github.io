@@ -1,9 +1,9 @@
 ---
 layout: page
-title: About
+title: portfolio
 permalink: /about/
 ---
 
 # 海原優斗
 
-
+portfolio
