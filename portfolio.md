@@ -1,7 +1,7 @@
 ---
 layout: page
 title: portfolio
-permalink: /about/
+permalink: /portfolio/
 ---
 
 # 海原優斗

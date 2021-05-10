@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Test
-permalink: /about/
+permalink: /test/
 ---
 
 # 海原優斗
