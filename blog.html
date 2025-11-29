@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div id="wrapper">
+        <nav id="navigation">
+            <a href="index.html">Home</a> | <a href="blog.html">Blog</a>
+        </nav>
+        <main id="content">
+            <h1>Blog</h1>
+            <div id="blog-list">
+                <p>Loading blog posts...</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Load blog posts from JSON
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch('./content/blog/posts.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load blog posts');
+                }
+                const data = await response.json();
+                displayBlogPosts(data.posts);
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                document.getElementById('blog-list').innerHTML = '<p>Failed to load blog posts.</p>';
+            }
+        }
+
+        // Display blog posts as a list
+        function displayBlogPosts(posts) {
+            const blogList = document.getElementById('blog-list');
+            
+            if (posts.length === 0) {
+                blogList.innerHTML = '<p>No blog posts yet.</p>';
+                return;
+            }
+
+            let html = '<ul class="blog-posts">';
+            posts.forEach(post => {
+                html += `
+                    <li class="blog-post-item">
+                        <a href="post.html?id=${post.id}">${post.title}</a>
+                        <span class="post-date">${post.date}</span>
+                        <p class="post-description">${post.description}</p>
+                    </li>
+                `;
+            });
+            html += '</ul>';
+            
+            blogList.innerHTML = html;
+        }
+
+        // Load posts when page loads
+        loadBlogPosts();
+    </script>
+</body>
+</html>

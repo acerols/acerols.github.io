@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div id="wrapper">
+        <nav id="navigation">
+            <a href="index.html">Home</a> | <a href="blog.html">Blog</a>
+        </nav>
+        <main id="content">
+            <p>Loading post...</p>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <script>
+        // Get post ID from URL parameter
+        function getPostId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        // Load and render markdown post
+        async function loadPost() {
+            const postId = getPostId();
+            const contentElement = document.getElementById('content');
+            
+            if (!postId) {
+                contentElement.innerHTML = '<p>No post specified. <a href="blog.html">Back to blog</a></p>';
+                return;
+            }
+
+            try {
+                const response = await fetch(`./content/blog/${postId}.md`);
+                
+                if (!response.ok) {
+                    throw new Error(`Post not found: ${response.status}`);
+                }
+                
+                const markdownText = await response.text();
+                const htmlContent = marked.parse(markdownText);
+                
+                contentElement.innerHTML = `
+                    ${htmlContent}
+                    <p><a href="blog.html">&larr; Back to blog</a></p>
+                `;
+            } catch (error) {
+                console.error('Error loading post:', error);
+                contentElement.innerHTML = '<p>Failed to load post. <a href="blog.html">Back to blog</a></p>';
+            }
+        }
+
+        // Load post when page loads
+        loadPost();
+    </script>
+</body>
+</html>

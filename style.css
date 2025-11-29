@@ -28,6 +28,23 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Navigation styles */
+#navigation {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#navigation a {
+    color: #0066cc;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+#navigation a:hover {
+    text-decoration: underline;
+}
+
 /* Markdownから生成される要素のスタイル */
 h1 {
     color: #333;
@@ -38,4 +55,38 @@ h1 {
 p {
     line-height: 1.6;
     margin-bottom: 15px;
+}
+
+/* Blog list styles */
+.blog-posts {
+    list-style: none;
+    padding: 0;
+}
+
+.blog-post-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.blog-post-item a {
+    font-size: 1.2em;
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.blog-post-item a:hover {
+    text-decoration: underline;
+}
+
+.post-date {
+    display: block;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.post-description {
+    color: #444;
+    margin-top: 5px;
 }
