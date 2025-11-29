@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,13 @@
     </div>
 
     <script>
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
         // Load blog posts from JSON
         async function loadBlogPosts() {
             try {
@@ -45,19 +52,33 @@
                 return;
             }
 
-            let html = '<ul class="blog-posts">';
-            posts.forEach(post => {
-                html += `
-                    <li class="blog-post-item">
-                        <a href="post.html?id=${post.id}">${post.title}</a>
-                        <span class="post-date">${post.date}</span>
-                        <p class="post-description">${post.description}</p>
-                    </li>
-                `;
-            });
-            html += '</ul>';
+            const ul = document.createElement('ul');
+            ul.className = 'blog-posts';
             
-            blogList.innerHTML = html;
+            posts.forEach(post => {
+                const li = document.createElement('li');
+                li.className = 'blog-post-item';
+                
+                const link = document.createElement('a');
+                link.href = `post.html?id=${encodeURIComponent(post.id)}`;
+                link.textContent = post.title;
+                
+                const dateSpan = document.createElement('span');
+                dateSpan.className = 'post-date';
+                dateSpan.textContent = post.date;
+                
+                const descP = document.createElement('p');
+                descP.className = 'post-description';
+                descP.textContent = post.description;
+                
+                li.appendChild(link);
+                li.appendChild(dateSpan);
+                li.appendChild(descP);
+                ul.appendChild(li);
+            });
+            
+            blogList.innerHTML = '';
+            blogList.appendChild(ul);
         }
 
         // Load posts when page loads
