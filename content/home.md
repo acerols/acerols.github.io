@@ -18,5 +18,5 @@ My curiosity spans across:
 ## Links
 
 * [Twitter](https://x.com/home)
-* [Github](https://github.com/acerols)
+* [GitHub](https://github.com/acerols)
 * [AtCoder](https://atcoder.jp/users/aceroid)
