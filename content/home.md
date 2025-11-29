@@ -1,12 +1,12 @@
 # About Me
 
-## 👋 Profile
+## Profile
 
 Born in 1998.
 
-Currently working as a **Software Engineer** for MCU SDK in the semiconductor industry.
+Currently working as a Software Engineer for MCU SDK in the semiconductor industry.
 
-## 🔍 Interests
+## Interests
 
 My curiosity spans across:
 
@@ -15,8 +15,8 @@ My curiosity spans across:
 * Networking
 * Web development
 
-## 🔗 Links
+## Links
 
-* Twitter : https://x.com/home
-* Github : https://github.com/acerols
-* AtCoder : https://atcoder.jp/users/aceroid
+* [Twitter](https://x.com/home)
+* [Github](https://github.com/acerols)
+* [AtCoder](https://atcoder.jp/users/aceroid)
