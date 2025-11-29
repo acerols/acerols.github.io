@@ -1,0 +1,41 @@
+/* style.css */
+
+/* すべての要素に適用される基本的なスタイル */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0; /* 背景色 */
+    margin: 0;
+    padding: 20px 0;
+}
+
+/* 🌟 コンテンツ全体を右に寄せるためのCSS 🌟 */
+#wrapper {
+    /* 1. 最大幅を設定し、コンテンツが広がりすぎないようにする */
+    max-width: 1000px;
+    width: 90%;
+    
+    /* 2. 左右のマージンをautoで中央寄せにする */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* 3. 中央からさらに右に寄せるために、左側のマージンを追加 */
+    /* 50px分だけ右に移動する */
+    margin-left: calc(auto + 50px); 
+    
+    /* 補助的なスタイル */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Markdownから生成される要素のスタイル */
+h1 {
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
