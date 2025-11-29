@@ -1,26 +1,22 @@
-# What's is Acerola
+# About Me
 
+## Profile
 
+I was born in 1998.
 
-## 📖 コンテンツ
+I am currently working as a Software Engineer, developing MCU SDKs in the semiconductor industry.
 
-* シンプルで
-* 高速な
-* Markdownレンダリングが可能です！
+## Interests
 
-> コードブロックもサポートされています。
-```javascript
-function greet() {
-  console.log("Hello Marked!");
-}
-```
+My interests include:
 
-## Link
+* Software for hardware control
+* Operating Systems
+* Networking
+* Web development
 
-* Twitter : https://x.com/home
-* Github : https://github.com/acerols
-* AtCoder : https://atcoder.jp/users/aceroid
+## Links
 
-## Appendix
-
-このサイトは **Marked.js** を使ってレンダリングされています。
+* [Twitter](https://x.com/home)
+* [GitHub](https://github.com/acerols)
+* [AtCoder](https://atcoder.jp/users/aceroid)

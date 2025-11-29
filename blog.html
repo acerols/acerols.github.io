@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div id="wrapper">
+        <nav id="navigation">
+            <a href="index.html">Home</a> | <a href="blog.html">Blog</a>
+        </nav>
+        <main id="content">
+            <h1>Blog</h1>
+            <div id="blog-list">
+                <p>Loading blog posts...</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Load blog posts from JSON
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch('./content/blog/posts.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load blog posts');
+                }
+                const data = await response.json();
+                displayBlogPosts(data.posts);
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                document.getElementById('blog-list').innerHTML = '<p>Failed to load blog posts.</p>';
+            }
+        }
+
+        // Display blog posts as a list
+        function displayBlogPosts(posts) {
+            const blogList = document.getElementById('blog-list');
+            
+            if (posts.length === 0) {
+                blogList.innerHTML = '<p>No blog posts yet.</p>';
+                return;
+            }
+
+            const ul = document.createElement('ul');
+            ul.className = 'blog-posts';
+            
+            posts.forEach(post => {
+                const li = document.createElement('li');
+                li.className = 'blog-post-item';
+                
+                const link = document.createElement('a');
+                link.href = `post.html?id=${encodeURIComponent(post.id)}`;
+                link.textContent = post.title;
+                
+                const dateSpan = document.createElement('span');
+                dateSpan.className = 'post-date';
+                dateSpan.textContent = post.date;
+                
+                const descP = document.createElement('p');
+                descP.className = 'post-description';
+                descP.textContent = post.description;
+                
+                li.appendChild(link);
+                li.appendChild(dateSpan);
+                li.appendChild(descP);
+                ul.appendChild(li);
+            });
+            
+            blogList.innerHTML = '';
+            blogList.appendChild(ul);
+        }
+
+        // Load posts when page loads
+        loadBlogPosts();
+    </script>
+</body>
+</html>
