@@ -2,15 +2,15 @@
 
 ## Profile
 
-Born in 1998.
+I was born in 1998.
 
-Currently working as a Software Engineer for MCU SDK in the semiconductor industry.
+I am currently working as a Software Engineer, developing MCU SDKs in the semiconductor industry.
 
 ## Interests
 
-My curiosity spans across:
+My interests include:
 
-* Software for controlling hardware
+* Software for hardware control
 * Operating Systems
 * Networking
 * Web development
